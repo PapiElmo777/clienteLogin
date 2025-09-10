@@ -35,13 +35,26 @@ public class Main {
             }
 
             if (loggedIn) {
-                System.out.println("\n--- CHAT INICIADO (Escriba 'FIN' para salir) ---");
+                System.out.println("\n--- CHAT INICIADO (Escriba 'Fin' para salir) ---");
+                System.out.println("\n--- CHAT INICIADO (Escriba 'Enviar' para enviar un mensaje a otro usuario) ---");
+                System.out.println("\n--- CHAT INICIADO (Escriba 'Buzon' para desplegar el buzon de mensajes) ---");
                 String cadena;
                 String mensaje;
 
                 cadena = teclado.readLine();
 
-                while (cadena != null && !cadena.equalsIgnoreCase("FIN")) {
+                switch (cadena){
+                    case "Fin":
+                        escritor.println("FIN");
+                    break;
+                    case "Enviar":
+                        System.out.println("¿Para quien es el mensaje?");
+                    break;
+                    case "Buzon":
+                        System.out.println("Entraste a buzon tines N mensajes");
+                    break;
+                }
+                /*while (cadena != null && !cadena.equalsIgnoreCase("FIN")) {
                     escritor.println(cadena);
                     mensaje = lectorServidor.readLine();
                     if (mensaje == null) {
@@ -51,7 +64,7 @@ public class Main {
                     System.out.println("SERVIDOR: " + mensaje);
                     cadena = teclado.readLine();
                 }
-                escritor.println("FIN");
+                escritor.println("FIN");*/
             }
 
         } catch (IOException e) {
