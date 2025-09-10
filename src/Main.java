@@ -25,6 +25,7 @@ public class Main {
                 }
                 if (delServidor.startsWith("EXITO: Usuario registrado")) {
                     System.out.println("Registro exitoso. Por favor, inicie sesión.");
+                    break;
                 }
                 delUsuario = teclado.readLine();
                 if (delUsuario == null) {
