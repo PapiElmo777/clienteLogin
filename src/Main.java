@@ -46,6 +46,26 @@ public class Main {
                     System.out.print("Elige una opción: ");
                     opcionMenu = teclado.readLine();
 
+                    if (opcionMenu == null) {
+                        escritor.println("FIN");
+                        break;
+                    }
+
+                    if ("Enviar".equalsIgnoreCase(opcionMenu) || "1".equals(opcionMenu)) {
+                        escritor.println("LISTA_USUARIOS");
+                        String lista = lectorServidor.readLine();
+                        System.out.println("Usuarios disponibles: " + lista);
+
+                        System.out.print("¿Para quién es el mensaje?: ");
+                        String destinatario = teclado.readLine();
+                        System.out.print("Escribe tu mensaje: ");
+                        String mensaje = teclado.readLine();
+
+                        escritor.println("ENVIAR_MENSAJE:" + destinatario + ":" + mensaje);
+
+                        System.out.println("SERVIDOR: " + lectorServidor.readLine());
+
+                    }
                 }
             }
 
