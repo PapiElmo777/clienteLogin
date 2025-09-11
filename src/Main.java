@@ -16,7 +16,6 @@ public class Main {
             String delServidor;
             String delUsuario;
             boolean loggedIn = false;
-            System.out.println("--- Conectando al servidor de autenticación ---");
             while ((delServidor = lectorServidor.readLine()) != null) {
                 System.out.println("SERVIDOR: " + delServidor);
                 if (delServidor.startsWith("EXITO: Login correcto")) {
@@ -24,35 +23,29 @@ public class Main {
                     break;
                 }
                 if (delServidor.startsWith("EXITO: Usuario registrado")) {
-                    System.out.println("Registro exitoso. Vuelva a conectarse con el servidor.");
+                    System.out.println("Registro exitoso. Vuelva a conectarse para iniciar sesión.");
                     break;
                 }
-                delUsuario = teclado.readLine();
-                if (delUsuario == null) {
-                    break;
+                if (delServidor.contains("BIENVENIDO") || delServidor.contains("Ingrese")) {
+                    delUsuario = teclado.readLine();
+                    if (delUsuario == null) {
+                        break;
+                    }
+                    escritor.println(delUsuario);
                 }
-                escritor.println(delUsuario);
             }
 
             if (loggedIn) {
-                System.out.println("\n--- CHAT INICIADO (Escriba 'Fin' para salir) ---");
-                System.out.println("\n--- CHAT INICIADO (Escriba 'Enviar' para enviar un mensaje a otro usuario) ---");
-                System.out.println("\n--- CHAT INICIADO (Escriba 'Buzon' para desplegar el buzon de mensajes) ---");
-                String cadena;
-                String mensaje;
+                System.out.println("\n--- CHAT INICIADO ---");
+                String opcionMenu;
+                while (true) {
+                    System.out.println("\nMENU DE OPCIONES:");
+                    System.out.println("1. Enviar (Enviar un mensaje a otro usuario)");
+                    System.out.println("2. Buzon  (Revisar tus mensajes)");
+                    System.out.println("3. Fin    (Cerrar la sesión)");
+                    System.out.print("Elige una opción: ");
+                    opcionMenu = teclado.readLine();
 
-                cadena = teclado.readLine();
-
-                switch (cadena){
-                    case "Fin":
-                        escritor.println("FIN");
-                    break;
-                    case "Enviar":
-                        System.out.println("¿Para quien es el mensaje?");
-                    break;
-                    case "Buzon":
-                        System.out.println("Entraste a buzon tines N mensajes");
-                    break;
                 }
             }
 
