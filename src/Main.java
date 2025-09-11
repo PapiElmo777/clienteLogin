@@ -65,6 +65,17 @@ public class Main {
 
                         System.out.println("SERVIDOR: " + lectorServidor.readLine());
 
+                    } else if ("Buzon".equalsIgnoreCase(opcionMenu) || "2".equals(opcionMenu)) {
+                        escritor.println("VER_BUZON");
+                        String lineaBuzon;
+                        while ((lineaBuzon = lectorServidor.readLine()) != null) {
+                            if ("FIN_MENSAJES".equals(lineaBuzon)) {
+                                break;
+                            }
+                            System.out.println(lineaBuzon);
+                        }
+                        System.out.println("--- Fin del buzón ---");
+
                     }
                 }
             }
