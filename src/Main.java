@@ -36,7 +36,7 @@ public class Main {
             }
 
             if (loggedIn) {
-                System.out.println("\n--- CHAT INICIADO ---");
+                System.out.println("\n---CHAT INICIADO---");
                 String opcionMenu;
                 while (true) {
                     System.out.println("\nMENU DE OPCIONES:");
