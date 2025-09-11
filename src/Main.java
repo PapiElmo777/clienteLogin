@@ -54,17 +54,6 @@ public class Main {
                         System.out.println("Entraste a buzon tines N mensajes");
                     break;
                 }
-                /*while (cadena != null && !cadena.equalsIgnoreCase("FIN")) {
-                    escritor.println(cadena);
-                    mensaje = lectorServidor.readLine();
-                    if (mensaje == null) {
-                        System.out.println("El servidor ha cerrado la conexión.");
-                        break;
-                    }
-                    System.out.println("SERVIDOR: " + mensaje);
-                    cadena = teclado.readLine();
-                }
-                escritor.println("FIN");*/
             }
 
         } catch (IOException e) {
