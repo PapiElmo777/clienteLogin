@@ -76,6 +76,11 @@ public class Main {
                         }
                         System.out.println("--- Fin del buzón ---");
 
+                    }else if ("Fin".equalsIgnoreCase(opcionMenu) || "3".equals(opcionMenu)) {
+                        escritor.println("FIN");
+                        break;
+                    } else {
+                        System.out.println("Opción no válida. Inténtalo de nuevo.");
                     }
                 }
             }
