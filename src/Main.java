@@ -42,7 +42,8 @@ public class Main {
                     System.out.println("\nMENU DE OPCIONES:");
                     System.out.println("1. Enviar (Enviar un mensaje a otro usuario)");
                     System.out.println("2. Buzon  (Revisar tus mensajes)");
-                    System.out.println("3. Fin    (Cerrar la sesión)");
+                    System.out.println("3. Eliminar cuenta (Borrar tu usuario y mensajes)");
+                    System.out.println("4. Fin    (Cerrar la sesión)");
                     System.out.print("Elige una opción: ");
                     opcionMenu = teclado.readLine();
 
@@ -55,7 +56,6 @@ public class Main {
                         escritor.println("LISTA_USUARIOS");
                         String lista = lectorServidor.readLine();
                         System.out.println("Usuarios disponibles: " + lista);
-
                         System.out.print("¿Para quién es el mensaje?: ");
                         String destinatario = teclado.readLine();
                         System.out.print("Escribe tu mensaje: ");
@@ -76,7 +76,21 @@ public class Main {
                         }
                         System.out.println("--- Fin del buzón ---");
 
-                    }else if ("Fin".equalsIgnoreCase(opcionMenu) || "3".equals(opcionMenu)) {
+                    }else if ("Eliminar cuenta".equalsIgnoreCase(opcionMenu) || "3".equals(opcionMenu)) {
+                        System.out.print("ADVERTENCIA: Esta acción es permanente y no se puede deshacer.\n¿Estás seguro de que quieres eliminar tu cuenta? (si/no): ");
+                        String confirmacion = teclado.readLine();
+                        if ("si".equalsIgnoreCase(confirmacion)) {
+                            escritor.println("ELIMINAR_CUENTA");
+                            String respuestaServidor = lectorServidor.readLine();
+                            System.out.println("SERVIDOR: " + respuestaServidor);
+                            if (respuestaServidor != null && respuestaServidor.startsWith("EXITO")) {
+                                break;
+                            }
+                        } else {
+                            System.out.println("Operación cancelada.");
+                        }
+
+                    }else if ("Fin".equalsIgnoreCase(opcionMenu) || "4".equals(opcionMenu)) {
                         escritor.println("FIN");
                         break;
                     } else {
