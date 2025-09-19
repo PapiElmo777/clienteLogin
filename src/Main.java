@@ -66,7 +66,32 @@ public class Main {
 
                         System.out.println("SERVIDOR: " + lectorServidor.readLine());
 
-                    } else if ("Buzon".equalsIgnoreCase(opcionMenu) || "3".equals(opcionMenu)) {
+                    } else if("Eliminar".equalsIgnoreCase(opcionMenu) || "2".equals(opcionMenu)) {
+                        escritor.println("MIS_MENSAJES");
+                        System.out.println("\nTus mensajes enviados:");
+                        String lineaMensaje;
+                        boolean hayMensajes = false;
+                        while ((lineaMensaje = lectorServidor.readLine()) != null) {
+                            if ("FIN_LISTA_MENSAJES".equals(lineaMensaje)) {
+                                break;
+                            }
+                            System.out.println(lineaMensaje);
+                            hayMensajes = true;
+                        }
+
+                        if (!hayMensajes) {
+                            System.out.println("No tienes mensajes enviados para eliminar.");
+                        } else {
+                            System.out.print("Ingresa el número del mensaje que quieres eliminar (o 'cancelar'): ");
+                            String numParaEliminar = teclado.readLine();
+                            if (numParaEliminar != null && !numParaEliminar.equalsIgnoreCase("cancelar")) {
+                                escritor.println("ELIMINAR_MENSAJE:" + numParaEliminar);
+                                System.out.println("SERVIDOR: " + lectorServidor.readLine());
+                            } else {
+                                System.out.println("Operación cancelada.");
+                            }
+                        }
+                    }else if("Buzon".equalsIgnoreCase(opcionMenu) || "3".equals(opcionMenu)) {
                         escritor.println("VER_BUZON");
                         String lineaBuzon;
                         while ((lineaBuzon = lectorServidor.readLine()) != null) {
