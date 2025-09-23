@@ -42,7 +42,7 @@ public class Main {
                     System.out.println("\nMENU DE OPCIONES:");
                     System.out.println("1. Enviar (Enviar un mensaje a otro usuario)");
                     System.out.println("2. Eliminar (Eliminar mensajes enviados)");
-                    System.out.println("3. Bloquear usuario(Bloquea de tu vida al que te cae mal)");
+                    System.out.println("3. Bloquear (Bloquea a un usuario de tu vida)");
                     System.out.println("4. Buzon  (Revisar tus mensajes)");
                     System.out.println("5. Eliminar cuenta (Borrar tu usuario y mensajes)");
                     System.out.println("6. Fin    (Cerrar la sesión)");
@@ -93,6 +93,10 @@ public class Main {
                                 System.out.println("Operación cancelada.");
                             }
                         }
+                    }
+                    if("Bloquear".equalsIgnoreCase(opcionMenu) || "3".equals(opcionMenu)){
+                        escritor.println("BLOQUEAR");
+
                     }
                     if("Buzon".equalsIgnoreCase(opcionMenu) || "4".equals(opcionMenu)) {
                         escritor.println("VER_BUZON");
