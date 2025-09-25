@@ -53,8 +53,9 @@ public class Main {
                         escritor.println("FIN");
                         break;
                     }
-
-                    if ("Enviar".equalsIgnoreCase(opcionMenu) || "1".equals(opcionMenu)) {
+                switch (opcionMenu.toLowerCase()){
+                    case "enviar":
+                    case "1":
                         escritor.println("LISTA_USUARIOS");
                         String lista = lectorServidor.readLine();
                         System.out.println("Usuarios disponibles: " + lista);
@@ -66,8 +67,10 @@ public class Main {
                         escritor.println("ENVIAR_MENSAJE:" + destinatario + ":" + mensaje);
 
                         System.out.println("SERVIDOR: " + lectorServidor.readLine());
+                        break;
 
-                    }
+                }
+
                     if("Eliminar".equalsIgnoreCase(opcionMenu) || "2".equals(opcionMenu)) {
                         escritor.println("MIS_MENSAJES");
                         System.out.println("\nTus mensajes enviados:");
@@ -96,6 +99,9 @@ public class Main {
                     }
                     if("Bloquear".equalsIgnoreCase(opcionMenu) || "3".equals(opcionMenu)){
                         escritor.println("BLOQUEAR");
+                        escritor.println("LISTA_USUARIOS");
+                        String lista = lectorServidor.readLine();
+                        System.out.println("¿Quien te cae gordo? : " + lista);
 
                     }
                     if("Buzon".equalsIgnoreCase(opcionMenu) || "4".equals(opcionMenu)) {
