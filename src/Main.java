@@ -136,16 +136,16 @@ public class Main {
                             System.out.println("Operación cancelada.");
                         }
                         break;
-
-
-                }
-
-                    if ("Fin".equalsIgnoreCase(opcionMenu) || "6".equals(opcionMenu)) {
+                    case "salir":
+                    case "7":
                         escritor.println("FIN");
-                        break;
-                    } else {
+                        System.out.println("Cerrando sesión...");
+                        return; // Termina el programa cliente
+
+                    default:
                         System.out.println("Opción no válida. Inténtalo de nuevo.");
-                    }
+                        break;
+                }
                 }
             }
 
