@@ -121,9 +121,8 @@ public class Main {
                         }
                         System.out.println("--- Fin del buzón ---");
                         break;
-
-                }
-                    if ("Eliminar cuenta".equalsIgnoreCase(opcionMenu) || "5".equals(opcionMenu)) {
+                    case "eliminar cuenta":
+                    case "5":
                         System.out.print("ADVERTENCIA: Esta acción es permanente y no se puede deshacer.\n¿Estás seguro de que quieres eliminar tu cuenta? (si/no): ");
                         String confirmacion = teclado.readLine();
                         if ("si".equalsIgnoreCase(confirmacion)) {
@@ -131,13 +130,16 @@ public class Main {
                             String respuestaServidor = lectorServidor.readLine();
                             System.out.println("SERVIDOR: " + respuestaServidor);
                             if (respuestaServidor != null && respuestaServidor.startsWith("EXITO")) {
-                                break;
+                                return;
                             }
                         } else {
                             System.out.println("Operación cancelada.");
                         }
+                        break;
 
-                    }
+
+                }
+
                     if ("Fin".equalsIgnoreCase(opcionMenu) || "6".equals(opcionMenu)) {
                         escritor.println("FIN");
                         break;
