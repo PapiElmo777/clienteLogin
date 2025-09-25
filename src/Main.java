@@ -95,16 +95,21 @@ public class Main {
                             }
                         }
                         break;
-                }
-
-
-                    if("Bloquear".equalsIgnoreCase(opcionMenu) || "3".equals(opcionMenu)){
-                        escritor.println("BLOQUEAR");
+                    case "bloquear":
+                    case "3":
                         escritor.println("LISTA_USUARIOS");
-                        String lista = lectorServidor.readLine();
-                        System.out.println("¿Quien te cae gordo? : " + lista);
-
-                    }
+                        String listaBloquear = lectorServidor.readLine();
+                        System.out.println("Usuarios que puedes bloquear: " + listaBloquear);
+                        System.out.print("¿Quien te cae gordo? : ");
+                        String usuarioABloquear = teclado.readLine();
+                        if (usuarioABloquear != null && !usuarioABloquear.trim().isEmpty()) {
+                            escritor.println("BLOQUEAR_USUARIO:" + usuarioABloquear);
+                            System.out.println("SERVIDOR: " + lectorServidor.readLine());
+                        } else {
+                            System.out.println("Operación cancelada.");
+                        }
+                        break;
+                }
                     if("Buzon".equalsIgnoreCase(opcionMenu) || "4".equals(opcionMenu)) {
                         escritor.println("VER_BUZON");
                         String lineaBuzon;
