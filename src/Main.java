@@ -109,7 +109,7 @@ public class Main {
                             System.out.println("Operación cancelada.");
                         }
                         break;
-                    case "ver buzón":
+                    case "buzon":
                     case "4":
                         escritor.println("VER_BUZON");
                         String lineaBuzon;
