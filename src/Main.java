@@ -68,10 +68,8 @@ public class Main {
 
                         System.out.println("SERVIDOR: " + lectorServidor.readLine());
                         break;
-
-                }
-
-                    if("Eliminar".equalsIgnoreCase(opcionMenu) || "2".equals(opcionMenu)) {
+                    case "eliminar":
+                    case "2":
                         escritor.println("MIS_MENSAJES");
                         System.out.println("\nTus mensajes enviados:");
                         String lineaMensaje;
@@ -96,7 +94,10 @@ public class Main {
                                 System.out.println("Operación cancelada.");
                             }
                         }
-                    }
+                        break;
+                }
+
+
                     if("Bloquear".equalsIgnoreCase(opcionMenu) || "3".equals(opcionMenu)){
                         escritor.println("BLOQUEAR");
                         escritor.println("LISTA_USUARIOS");
