@@ -109,8 +109,8 @@ public class Main {
                             System.out.println("Operación cancelada.");
                         }
                         break;
-                }
-                    if("Buzon".equalsIgnoreCase(opcionMenu) || "4".equals(opcionMenu)) {
+                    case "ver buzón":
+                    case "4":
                         escritor.println("VER_BUZON");
                         String lineaBuzon;
                         while ((lineaBuzon = lectorServidor.readLine()) != null) {
@@ -120,8 +120,9 @@ public class Main {
                             System.out.println(lineaBuzon);
                         }
                         System.out.println("--- Fin del buzón ---");
+                        break;
 
-                    }
+                }
                     if ("Eliminar cuenta".equalsIgnoreCase(opcionMenu) || "5".equals(opcionMenu)) {
                         System.out.print("ADVERTENCIA: Esta acción es permanente y no se puede deshacer.\n¿Estás seguro de que quieres eliminar tu cuenta? (si/no): ");
                         String confirmacion = teclado.readLine();
