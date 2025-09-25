@@ -137,7 +137,7 @@ public class Main {
                         }
                         break;
                     case "salir":
-                    case "7":
+                    case "6":
                         escritor.println("FIN");
                         System.out.println("Cerrando sesión...");
                         return; // Termina el programa cliente
