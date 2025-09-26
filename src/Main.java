@@ -57,16 +57,22 @@ public class Main {
                 switch (opcionMenu.toLowerCase()){
                     case "enviar":
                     case "1":
+                        escritor.println("LISTA_BLOQUEADOS");
+                        String bloqueados;
+                        while ((bloqueados = lectorServidor.readLine()) != null) {
+                            if ("FIN_LISTA_BLOQUEADOS".equals(bloqueados)) {
+                                break;
+                            }
+                            System.out.println("Te caen gordos: " + bloqueados);
+                        }
                         escritor.println("LISTA_USUARIOS");
-                        String lista = lectorServidor.readLine();
-                        System.out.println("Usuarios disponibles: " + lista);
-                        System.out.print("¿Para quién es el mensaje?: ");
+                        String listaUsuarios = lectorServidor.readLine();
+                        System.out.println("Usuarios disponibles: " + listaUsuarios);
+                        System.out.print("\n¿Para quién es el mensaje?: ");
                         String destinatario = teclado.readLine();
                         System.out.print("Escribe tu mensaje: ");
                         String mensaje = teclado.readLine();
-
                         escritor.println("ENVIAR_MENSAJE:" + destinatario + ":" + mensaje);
-
                         System.out.println("SERVIDOR: " + lectorServidor.readLine());
                         break;
                     case "eliminar":
@@ -96,12 +102,12 @@ public class Main {
                             }
                         }
                         break;
-                    case "bloquear":
+                    case "bloquear usuario":
                     case "3":
                         escritor.println("LISTA_USUARIOS");
                         String listaBloquear = lectorServidor.readLine();
                         System.out.println("Usuarios que puedes bloquear: " + listaBloquear);
-                        System.out.print("¿Quien te cae gordo? : ");
+                        System.out.print("¿Quien te cae gordo?: ");
                         String usuarioABloquear = teclado.readLine();
                         if (usuarioABloquear != null && !usuarioABloquear.trim().isEmpty()) {
                             escritor.println("BLOQUEAR_USUARIO:" + usuarioABloquear);
