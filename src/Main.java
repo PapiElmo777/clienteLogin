@@ -43,10 +43,10 @@ public class Main {
                     System.out.println("1. Enviar (Enviar un mensaje a otro usuario)");
                     System.out.println("2. Eliminar (Eliminar mensajes enviados)");
                     System.out.println("3. Bloquear (Bloquea a un usuario de tu vida)");
-                    System.out.println("5. Desbloquear usuario(Ya se reconciliaron)");
-                    System.out.println("4. Buzon  (Revisar tus mensajes)");
-                    System.out.println("5. Eliminar cuenta (Borrar tu usuario y mensajes)");
-                    System.out.println("6. Fin    (Cerrar la sesión)");
+                    System.out.println("4. Desbloquear usuario(Ya se reconciliaron)");
+                    System.out.println("5. Buzon  (Revisar tus mensajes)");
+                    System.out.println("6. Eliminar cuenta (Borrar tu usuario y mensajes)");
+                    System.out.println("7. Fin    (Cerrar la sesión)");
                     System.out.print("Elige una opción: ");
                     opcionMenu = teclado.readLine();
 
@@ -110,8 +110,30 @@ public class Main {
                             System.out.println("Operación cancelada.");
                         }
                         break;
-                    case "buzon":
+                    case "desbloquear":
                     case "4":
+                        escritor.println("LISTA_BLOQUEADOS");
+                        System.out.println("Tus usuarios bloqueados:");
+                        String lineaBloqueados;
+                        while ((lineaBloqueados = lectorServidor.readLine()) != null) {
+                            if ("FIN_LISTA_BLOQUEADOS".equals(lineaBloqueados)) {
+                                break;
+                            }
+                            System.out.println(lineaBloqueados);
+                            if (!lineaBloqueados.equals("No tienes a nadie bloqueado.")) {
+                                System.out.print("Escribe el nombre del usuario a desbloquear (o 'cancelar'): ");
+                                String usuarioADesbloquear = teclado.readLine();
+                                if(usuarioADesbloquear != null && !usuarioADesbloquear.equalsIgnoreCase("cancelar")) {
+                                    escritor.println("DESBLOQUEAR_USUARIO:" + usuarioADesbloquear);
+                                    System.out.println("SERVIDOR: " + lectorServidor.readLine());
+                                } else {
+                                    System.out.println("Operación cancelada.");
+                                }
+                            }
+                        }
+                        break;
+                    case "buzon":
+                    case "5":
                         escritor.println("VER_BUZON");
                         String lineaBuzon;
                         while ((lineaBuzon = lectorServidor.readLine()) != null) {
@@ -123,7 +145,7 @@ public class Main {
                         System.out.println("--- Fin del buzón ---");
                         break;
                     case "eliminar cuenta":
-                    case "5":
+                    case "6":
                         System.out.print("ADVERTENCIA: Esta acción es permanente y no se puede deshacer.\n¿Estás seguro de que quieres eliminar tu cuenta? (si/no): ");
                         String confirmacion = teclado.readLine();
                         if ("si".equalsIgnoreCase(confirmacion)) {
@@ -138,7 +160,7 @@ public class Main {
                         }
                         break;
                     case "salir":
-                    case "6":
+                    case "7":
                         escritor.println("FIN");
                         System.out.println("Cerrando sesión...");
                         return;
