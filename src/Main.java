@@ -119,22 +119,28 @@ public class Main {
                     case "desbloquear":
                     case "4":
                         escritor.println("LISTA_BLOQUEADOS");
-                        System.out.println("Tus usuarios bloqueados:");
-                        String lineaBloqueados;
-                        while ((lineaBloqueados = lectorServidor.readLine()) != null) {
-                            if ("FIN_LISTA_BLOQUEADOS".equals(lineaBloqueados)) {
+                        System.out.println("Tus usuarios bloqueados");
+                        String lineaRespuesta;
+                        String listaCompletaDeBloqueados = "";
+                        boolean hayUsuariosBloqueados = false;
+                        while ((lineaRespuesta = lectorServidor.readLine()) != null) {
+                            if ("FIN_LISTA_BLOQUEADOS".equals(lineaRespuesta)) {
                                 break;
                             }
-                            System.out.println(lineaBloqueados);
-                            if (!lineaBloqueados.equals("No tienes a nadie bloqueado.")) {
-                                System.out.print("Escribe el nombre del usuario a desbloquear (o 'cancelar'): ");
-                                String usuarioADesbloquear = teclado.readLine();
-                                if(usuarioADesbloquear != null && !usuarioADesbloquear.equalsIgnoreCase("cancelar")) {
-                                    escritor.println("DESBLOQUEAR_USUARIO:" + usuarioADesbloquear);
-                                    System.out.println("SERVIDOR: " + lectorServidor.readLine());
-                                } else {
-                                    System.out.println("Operación cancelada.");
-                                }
+                            if (!lineaRespuesta.equalsIgnoreCase("No tienes a nadie bloqueado.")) {
+                                listaCompletaDeBloqueados = lineaRespuesta;
+                                hayUsuariosBloqueados = true;
+                            }
+                            System.out.println(lineaRespuesta);
+                        }
+                        if (hayUsuariosBloqueados) {
+                            System.out.print("Escribe el nombre del usuario a desbloquear (o 'cancelar'): ");
+                            String usuarioADesbloquear = teclado.readLine();
+                            if (usuarioADesbloquear != null && !usuarioADesbloquear.equalsIgnoreCase("cancelar")) {
+                                escritor.println("DESBLOQUEAR_USUARIO:" + usuarioADesbloquear);
+                                System.out.println("SERVIDOR: " + lectorServidor.readLine());
+                            } else {
+                                System.out.println("Operación cancelada.");
                             }
                         }
                         break;
