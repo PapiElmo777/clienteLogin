@@ -47,7 +47,7 @@ public class Main {
                     System.out.println("--- Archivos ---");
                     System.out.println("4. Crear (Crean un Archivo)");
                     System.out.println("5. Mis Archivos (Te muestra los archivos que tienes.)");
-                    System.out.println("6. Obtener Archivo de otro usuario");
+                    System.out.println("6. Obtener (Te muestra los archivos de otro usuario)");
                     System.out.println("--- Opciones de Usuarios ---");
                     System.out.println("7. Bloquear (Bloquea a un usuario de tu vida)");
                     System.out.println("8. Desbloquear usuario(Ya se reconciliaron)");
@@ -148,7 +148,37 @@ public class Main {
                         }
                         System.out.println("--------------------");
                     break;
+                    case "obtener":
+                    case "6":
+                        escritor.println("LISTA_USUARIOS");
+                        System.out.println("Usuarios disponibles: " + lectorServidor.readLine());
+                        System.out.print("¿De qué usuario quieres ver los archivos?: ");
+                        String duenoArchivos = teclado.readLine();
 
+                        if (duenoArchivos != null && !duenoArchivos.trim().isEmpty()) {
+                            escritor.println("LISTAR_ARCHIVOS_DE:" + duenoArchivos);
+                            System.out.println("\n--- Archivos de " + duenoArchivos + " ---");
+                            String archivoRemoto;
+                            boolean tieneArchivos = false;
+                            while ((archivoRemoto = lectorServidor.readLine()) != null) {
+                                if ("FIN_LISTA_ARCHIVOS".equals(archivoRemoto)) break;
+                                if (!archivoRemoto.contains("no tiene archivos")) {
+                                    tieneArchivos = true;
+                                }
+                                System.out.println(archivoRemoto);
+                            }
+                            System.out.println("-----------------------------");
+
+                            if (tieneArchivos) {
+                                System.out.print("Escribe el nombre completo del archivo que quieres copiar: ");
+                                String archivoACopiar = teclado.readLine();
+                                if (archivoACopiar != null && !archivoACopiar.trim().isEmpty()) {
+                                    escritor.println("COMPARTIR_ARCHIVO:" + duenoArchivos + ":" + archivoACopiar);
+                                    System.out.println("SERVIDOR: " + lectorServidor.readLine());
+                                }
+                            }
+                        }
+                        break;
                     case "bloquear":
                     case "7":
                         escritor.println("LISTA_USUARIOS");
