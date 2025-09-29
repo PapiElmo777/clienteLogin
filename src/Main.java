@@ -43,14 +43,17 @@ public class Main {
                     System.out.println("--- Opciones de mensajes ---");
                     System.out.println("1. Enviar (Enviar un mensaje a otro usuario)");
                     System.out.println("2. Eliminar (Eliminar mensajes enviados)");
-                    System.out.println("5. Buzon  (Revisar tus mensajes)");
-                    System.out.println(" Obtener Archivo de otro usuario");
+                    System.out.println("3. Buzon  (Revisar tus mensajes)");
+                    System.out.println("--- Archivos ---");
+                    System.out.println("4. Crear Archivo");
+                    System.out.println("5. Mis Archivos");
+                    System.out.println("6. Obtener Archivo de otro usuario");
                     System.out.println("--- Opciones de Usuarios ---");
-                    System.out.println("3. Bloquear (Bloquea a un usuario de tu vida)");
-                    System.out.println("4. Desbloquear usuario(Ya se reconciliaron)");
+                    System.out.println("7. Bloquear (Bloquea a un usuario de tu vida)");
+                    System.out.println("8. Desbloquear usuario(Ya se reconciliaron)");
                     System.out.println("--- Opciones de cuenta ---");
-                    System.out.println("6. Eliminar cuenta (Borrar tu usuario y mensajes)");
-                    System.out.println("7. Fin    (Cerrar la sesión)");
+                    System.out.println("9. Eliminar cuenta (Borrar tu usuario y mensajes)");
+                    System.out.println("10. Fin    (Cerrar la sesión)");
                     System.out.print("Elige una opción: ");
                     opcionMenu = teclado.readLine();
 
@@ -107,8 +110,8 @@ public class Main {
                             }
                         }
                         break;
-                    case "bloquear usuario":
-                    case "3":
+                    case "bloquear":
+                    case "7":
                         escritor.println("LISTA_USUARIOS");
                         String listaBloquear = lectorServidor.readLine();
                         System.out.println("Usuarios que puedes bloquear: " + listaBloquear);
@@ -122,7 +125,7 @@ public class Main {
                         }
                         break;
                     case "desbloquear":
-                    case "4":
+                    case "8":
                         escritor.println("LISTA_BLOQUEADOS");
                         System.out.println("Tus usuarios bloqueados");
                         String lineaRespuesta;
@@ -150,7 +153,7 @@ public class Main {
                         }
                         break;
                     case "buzon":
-                    case "5":
+                    case "3":
                         escritor.println("VER_BUZON");
                         String lineaBuzon;
                         while ((lineaBuzon = lectorServidor.readLine()) != null) {
@@ -162,7 +165,7 @@ public class Main {
                         System.out.println("--- Fin del buzón ---");
                         break;
                     case "eliminar cuenta":
-                    case "6":
+                    case "9":
                         System.out.print("ADVERTENCIA: Esta acción es permanente y no se puede deshacer.\n¿Estás seguro de que quieres eliminar tu cuenta? (si/no): ");
                         String confirmacion = teclado.readLine();
                         if ("si".equalsIgnoreCase(confirmacion)) {
@@ -177,7 +180,7 @@ public class Main {
                         }
                         break;
                     case "salir":
-                    case "7":
+                    case "10":
                         escritor.println("FIN");
                         System.out.println("Cerrando sesión...");
                         return;
