@@ -46,7 +46,7 @@ public class Main {
                     System.out.println("3. Buzon  (Revisar tus mensajes)");
                     System.out.println("--- Archivos ---");
                     System.out.println("4. Crear (Crean un Archivo)");
-                    System.out.println("5. Mis Archivos");
+                    System.out.println("5. Mis Archivos (Te muestra los archivos que tienes.)");
                     System.out.println("6. Obtener Archivo de otro usuario");
                     System.out.println("--- Opciones de Usuarios ---");
                     System.out.println("7. Bloquear (Bloquea a un usuario de tu vida)");
@@ -136,6 +136,17 @@ public class Main {
 
                         escritor.println("CREAR_ARCHIVO:" + nombreArchivo + ":" + contenido.toString());
                         System.out.println("SERVIDOR: " + lectorServidor.readLine());
+                    break;
+                    case "mis archivos":
+                    case "5":
+                        escritor.println("MIS_ARCHIVOS");
+                        System.out.println("\n--- Mis Archivos ---");
+                        String miArchivo;
+                        while ((miArchivo = lectorServidor.readLine()) != null) {
+                            if ("FIN_LISTA_ARCHIVOS".equals(miArchivo)) break;
+                            System.out.println(miArchivo);
+                        }
+                        System.out.println("--------------------");
                     break;
 
                     case "bloquear":
