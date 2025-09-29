@@ -40,15 +40,20 @@ public class Main {
                 String opcionMenu;
                 while (true) {
                     System.out.println("\nMENU DE OPCIONES:");
+                    System.out.println("--- Opciones de mensajes ---");
                     System.out.println("1. Enviar (Enviar un mensaje a otro usuario)");
                     System.out.println("2. Eliminar (Eliminar mensajes enviados)");
+                    System.out.println("5. Buzon  (Revisar tus mensajes)");
+                    System.out.println(" Obtener Archivo de otro usuario");
+                    System.out.println("--- Opciones de Usuarios ---");
                     System.out.println("3. Bloquear (Bloquea a un usuario de tu vida)");
                     System.out.println("4. Desbloquear usuario(Ya se reconciliaron)");
-                    System.out.println("5. Buzon  (Revisar tus mensajes)");
+                    System.out.println("--- Opciones de cuenta ---");
                     System.out.println("6. Eliminar cuenta (Borrar tu usuario y mensajes)");
                     System.out.println("7. Fin    (Cerrar la sesión)");
                     System.out.print("Elige una opción: ");
                     opcionMenu = teclado.readLine();
+
 
                     if (opcionMenu == null) {
                         escritor.println("FIN");
