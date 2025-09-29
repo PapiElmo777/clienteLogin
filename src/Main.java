@@ -45,7 +45,7 @@ public class Main {
                     System.out.println("2. Eliminar (Eliminar mensajes enviados)");
                     System.out.println("3. Buzon  (Revisar tus mensajes)");
                     System.out.println("--- Archivos ---");
-                    System.out.println("4. Crear Archivo");
+                    System.out.println("4. Crear (Crean un Archivo)");
                     System.out.println("5. Mis Archivos");
                     System.out.println("6. Obtener Archivo de otro usuario");
                     System.out.println("--- Opciones de Usuarios ---");
@@ -122,6 +122,21 @@ public class Main {
                         }
                         System.out.println("--- Fin del buzón ---");
                         break;
+                    case "crear":
+                    case "4":
+                        System.out.print("Nombre del archivo (sin .txt): ");
+                        String nombreArchivo = teclado.readLine();
+
+                        System.out.println("Escribe el contenido. Escribe 'FIN_CONTENIDO' en una línea nueva para terminar.");
+                        StringBuilder contenido = new StringBuilder();
+                        String lineaContenido;
+                        while ((lineaContenido = teclado.readLine()) != null && !lineaContenido.equals("FIN_CONTENIDO")) {
+                            contenido.append(lineaContenido).append("\\n");
+                        }
+
+                        escritor.println("CREAR_ARCHIVO:" + nombreArchivo + ":" + contenido.toString());
+                        System.out.println("SERVIDOR: " + lectorServidor.readLine());
+                    break;
 
                     case "bloquear":
                     case "7":
