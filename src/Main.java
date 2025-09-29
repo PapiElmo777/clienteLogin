@@ -127,10 +127,10 @@ public class Main {
                         System.out.print("Nombre del archivo (sin .txt): ");
                         String nombreArchivo = teclado.readLine();
 
-                        System.out.println("Escribe el contenido. Escribe 'FIN_CONTENIDO' en una línea nueva para terminar.");
+                        System.out.println("Escribe el contenido. Escribe 'LISTO' en una línea nueva para terminar.");
                         StringBuilder contenido = new StringBuilder();
                         String lineaContenido;
-                        while ((lineaContenido = teclado.readLine()) != null && !lineaContenido.equals("FIN_CONTENIDO")) {
+                        while ((lineaContenido = teclado.readLine()) != null && !lineaContenido.equals("LISTO")) {
                             contenido.append(lineaContenido).append("\\n");
                         }
 
