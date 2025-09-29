@@ -110,6 +110,19 @@ public class Main {
                             }
                         }
                         break;
+                    case "buzon":
+                    case "3":
+                        escritor.println("VER_BUZON");
+                        String lineaBuzon;
+                        while ((lineaBuzon = lectorServidor.readLine()) != null) {
+                            if ("FIN_MENSAJES".equals(lineaBuzon)) {
+                                break;
+                            }
+                            System.out.println(lineaBuzon);
+                        }
+                        System.out.println("--- Fin del buzón ---");
+                        break;
+
                     case "bloquear":
                     case "7":
                         escritor.println("LISTA_USUARIOS");
@@ -152,18 +165,7 @@ public class Main {
                             }
                         }
                         break;
-                    case "buzon":
-                    case "3":
-                        escritor.println("VER_BUZON");
-                        String lineaBuzon;
-                        while ((lineaBuzon = lectorServidor.readLine()) != null) {
-                            if ("FIN_MENSAJES".equals(lineaBuzon)) {
-                                break;
-                            }
-                            System.out.println(lineaBuzon);
-                        }
-                        System.out.println("--- Fin del buzón ---");
-                        break;
+
                     case "eliminar cuenta":
                     case "9":
                         System.out.print("ADVERTENCIA: Esta acción es permanente y no se puede deshacer.\n¿Estás seguro de que quieres eliminar tu cuenta? (si/no): ");
