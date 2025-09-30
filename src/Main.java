@@ -22,9 +22,8 @@ public class Main {
                     loggedIn = true;
                     break;
                 }
-                if (delServidor.startsWith("EXITO: Usuario registrado")) {
-                    System.out.println("Registro exitoso. Vuelva a conectarse para iniciar sesión.");
-                    break;
+                if (delServidor.equals("EXITO: Usuario registrado.")) {
+                    continue;
                 }
                 if (delServidor.contains("BIENVENIDO") || delServidor.contains("Ingrese")) {
                     delUsuario = teclado.readLine();
