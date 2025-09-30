@@ -252,6 +252,6 @@ public class Main {
         } catch (IOException e) {
             System.out.println("No se pudo conectar al servidor o la conexión se perdió.");
         }
-        System.out.println("Programa cliente terminado.");
+        System.out.println("Programa cliente terminado");
     }
 }
